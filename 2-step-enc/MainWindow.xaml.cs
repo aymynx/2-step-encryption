@@ -14,15 +14,22 @@ namespace _2_step_enc
     /// </summary>
     public partial class MainWindow : Window
     {
+        // target file to encrypt or decrypt
         static string file_target;
+        // file to be created by encrypting or decrypting
         static string file_destination;
         static string file_destination_name;
+        // our string which will be used to encrypt
+        // our target file
         static string mypassword;
+        // custom files-to-be-encrypted extention
+        // if changed dont forget to change the
+        // file_selector.Filter line
+        const string myExtention = ".synx";
         public MainWindow()
         {
             InitializeComponent();
         }
-
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -30,20 +37,28 @@ namespace _2_step_enc
         private void Button_Make_Key(object sender, RoutedEventArgs e)
         {
             byte[] bytesToBeEncrypted = Encoding.UTF8.GetBytes(UserInput.Text);
+            // using AES encryption to encrypt 'UserInput.Text'
+            // where the secret key will be in the below line
+            // change "MyPassword" with your custom secret key
             byte[] passwordBytes = Encoding.UTF8.GetBytes("MyPassword");
+            // change "MyPassword" with your custom secret key
             passwordBytes = SHA256.Create().ComputeHash(passwordBytes);
             byte[] bytesEncrypted = AES_Encrypt(bytesToBeEncrypted, passwordBytes);
             Output.Text = Convert.ToBase64String(bytesEncrypted);
             Output_Copy.Text = Convert.ToBase64String(bytesEncrypted);
             if(Output_Copy.Text != Output.Text)
             {
+                // additianal useless line
                 mypassword = "MyPassword";
             }
             else
             {
+                // this is our encypted string
+                // which will be used to encrypt
+                // our target file
                 mypassword = Output.Text;
             }
-            //Decription Process of above key maker
+            //Decryption Process of above key maker
             //byte[] bytesToBeDecrypted = Convert.FromBase64String(encryptedResult);
             //byte[] passwordBytesdecrypt = Encoding.UTF8.GetBytes("Password");
             //passwordBytesdecrypt = SHA256.Create().ComputeHash(passwordBytesdecrypt);
@@ -52,10 +67,12 @@ namespace _2_step_enc
         }
         private void Button_Copy(object sender, RoutedEventArgs e)
         {
+            // copy file-encryption string to clipboard
             System.Windows.Clipboard.SetText(Output.Text);
         }
         private void Button_Clear(object sender, RoutedEventArgs e)
         {
+            // clear everything
             UserInput.Text = "Your string here";
             Output.Text = "";
             Output_Copy.Text = "";
@@ -67,6 +84,7 @@ namespace _2_step_enc
         public static byte[] AES_Encrypt(byte[] bytesToBeEncrypted, byte[] passwordBytes)
         {
             byte[] encryptedBytes = null;
+            // salt bytes can also be modified to your custom byte array
             byte[] saltBytes = new byte[] { 6, 9, 4, 2, 0, 7, 1, 1 };
             using (MemoryStream ms = new MemoryStream())
             {
@@ -91,6 +109,7 @@ namespace _2_step_enc
         public static byte[] AES_Decrypt(byte[] bytesToBeDecrypted, byte[] passwordBytes)
         {
             byte[] decryptedBytes = null;
+            // salt bytes can also be modified to your custom byte array
             byte[] saltBytes = new byte[] { 6, 9, 4, 2, 0, 7, 1, 1 };
             using (MemoryStream ms = new MemoryStream())
             {
@@ -112,13 +131,15 @@ namespace _2_step_enc
             }
             return decryptedBytes;
         }
+        // You can also pass your custom secret key to EncryptFile() and custom number of iterations
         public void EncryptFile(string sourceFilename, string destinationFilename, string password = "MyPassword", int iterations = 1042)
         {
+            // salt bytes can also be modified to your custom byte array
             byte[] salt = new byte[] { 6, 9, 4, 2, 0, 7, 1, 1 };
             AesManaged aes = new AesManaged();
             aes.BlockSize = aes.LegalBlockSizes[0].MaxSize;
             aes.KeySize = aes.LegalKeySizes[0].MaxSize;
-            // NB: Rfc2898DeriveBytes initialization and subsequent calls to   GetBytes   must be eactly the same, including order, on both the encryption and decryption sides.
+            // NB: Rfc2898DeriveBytes initialization and subsequent calls to GetBytes must be eactly the same, including order, on both the encryption and decryption sides.
             Rfc2898DeriveBytes key = new Rfc2898DeriveBytes(password, salt, iterations);
             aes.Key = key.GetBytes(aes.KeySize / 8);
             aes.IV = key.GetBytes(aes.BlockSize / 8);
@@ -136,6 +157,7 @@ namespace _2_step_enc
                 }
             }
         }
+        // You can also pass your custom secret key to DecryptFile() and custom number of iterations
         public void DecryptFile(string sourceFilename, string destinationFilename, string password = "MyPassword", int iterations = 1042)
         {
             byte[] salt = new byte[] { 6, 9, 4, 2, 0, 7, 1, 1 };
@@ -184,7 +206,7 @@ namespace _2_step_enc
                 string file_name = file[file.Length - 1];
                 UserInput_File.Text = "File : " + file_name;
                 file_path.Text = file_selector.FileName;
-                if (file_name.Contains(".synx"))
+                if (file_name.Contains(myExtention))
                 {
                     string temp_file = file_name;
                     int fileExtPos = temp_file.LastIndexOf(".");
@@ -197,8 +219,8 @@ namespace _2_step_enc
                 }
                 else
                 {
-                    file_destination = file_target + ".synx";
-                    New_File_Name.Text = file_name + ".synx";
+                    file_destination = file_target + myExtention;
+                    New_File_Name.Text = file_name + myExtention;
                 }
                 
             } else {
@@ -218,7 +240,6 @@ namespace _2_step_enc
                 New_File_Name.Text = "Error : " + excep;
             }
         }
-
         private void Button_Encrypt_File(object sender, RoutedEventArgs e)
         {
             try
@@ -231,12 +252,10 @@ namespace _2_step_enc
                 New_File_Name.Text = "Error : " + excep;
             }
         }
-
         private void UserInput_Copy_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
-
         private void close_button_Click(object sender, RoutedEventArgs e)
         {
             Close();
