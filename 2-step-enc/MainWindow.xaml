@@ -1,0 +1,57 @@
+﻿<Window x:Class="_2_step_enc.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_2_step_enc" 
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" AllowsTransparency="True" WindowStyle="None">
+    <Window.Background>
+        <SolidColorBrush Color="White" Opacity="0"/>
+    </Window.Background>
+    <Grid Width="800" Background="#00000000" Margin="0,0,0,-0.4">
+        <Rectangle x:Name="dragable" MouseDown="Window_MouseDown" Fill="#3F5B00A2" Height="297" Margin="93,28,93,0" VerticalAlignment="Top" RadiusY="20.522" RadiusX="20.522"/>
+        <Rectangle Fill="#CCF4F4F5" Height="312" Margin="10,58,10,0" Stroke="Black" VerticalAlignment="Top" RadiusY="27.465" RadiusX="27.465"/>
+        <Rectangle Fill="#7F5B00A2" Height="241" Margin="393,117,393,0" Stroke="Black" VerticalAlignment="Top" RadiusY="13.323" RadiusX="13.323"/>
+        <TextBox x:Name="UserInput" HorizontalAlignment="Left" Height="25" Margin="49,147,0,0" TextWrapping="Wrap" Text="Your string here" VerticalAlignment="Top" Width="307" Background="#FFF4F4F5" Foreground="#FF621D99" FontSize="16" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" FontFamily="Quicksand"/>
+        <TextBox x:Name="string1" HorizontalAlignment="Left" Height="39" Margin="49,103,0,0" TextWrapping="Wrap" Text="String Encryption" VerticalAlignment="Top" Width="307" FontSize="20" TextChanged="TextBox_TextChanged" FontWeight="Bold" TextDecorations="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA77ACC" Background="{x:Null}" FontFamily="Quicksand" IsReadOnly="True"/>
+        <Rectangle Fill="#FFA77ACC" HorizontalAlignment="Left" Height="3" Margin="51,179,0,0" RadiusY="27.465" RadiusX="27.465" VerticalAlignment="Top" Width="320" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Button x:Name="MakeKey" Content="Make Key" Height="46" Margin="141,197,549,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="#FFA77ACC" FontFamily="Quicksand" Click="Button_Make_Key"/>
+        <TextBox x:Name="Output" HorizontalAlignment="Left" Height="31" Margin="49,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="307" IsReadOnly="True"/>
+        <TextBox x:Name="string2" HorizontalAlignment="Left" Height="25" Margin="49,256,0,0" TextWrapping="Wrap" Text="Output encryption key :" VerticalAlignment="Top" Width="307" Background="#FFF4F4F5" Foreground="#FF621D99" FontSize="16" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" FontFamily="Quicksand" IsReadOnly="True"/>
+        <Button x:Name="CopyKey" Content="Copy" Height="28" Margin="93,330,617,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="#FFA77ACC" FontFamily="Quicksand" Click="Button_Copy"/>
+        <Button x:Name="ResetAll" Content="Reset" Height="28" Margin="232,330,478,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="#FFA77ACC" FontFamily="Quicksand" Click="Button_Clear"/>
+        <TextBox x:Name="string3" HorizontalAlignment="Left" Height="39" Margin="483,103,0,0" TextWrapping="Wrap" Text="File Encryption" VerticalAlignment="Top" Width="307" FontSize="20" TextChanged="TextBox_TextChanged" FontWeight="Bold" TextDecorations="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFA77ACC" Background="{x:Null}" FontFamily="Quicksand" IsReadOnly="True"/>
+        <Rectangle Fill="#FFA77ACC" HorizontalAlignment="Left" Height="3" Margin="431,179,0,0" RadiusY="27.465" RadiusX="27.465" VerticalAlignment="Top" Width="320" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <TextBox x:Name="UserInput_File" HorizontalAlignment="Left" Height="25" Margin="436,131,0,0" TextWrapping="Wrap" Text="No selected file yet" VerticalAlignment="Top" Width="307" Background="#FFF4F4F5" Foreground="#FF621D99" FontSize="16" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" FontFamily="Quicksand" TextChanged="UserInput_Copy_TextChanged" IsReadOnly="True"/>
+        <Button x:Name="MakeKey_Copy" Content="Pick File" Height="46" Margin="542,197,148,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="#FFA77ACC" FontFamily="Quicksand" Click="Button_Pick_File"/>
+        <TextBox x:Name="file_path" HorizontalAlignment="Left" Height="25" Margin="436,156,0,0" TextWrapping="Wrap" Text="No selected file yet" VerticalAlignment="Top" Width="307" Background="#FFF4F4F5" Foreground="#FF621D99" FontSize="16" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" FontFamily="Quicksand" TextChanged="UserInput_Copy_TextChanged" IsReadOnly="True"/>
+        <TextBox x:Name="Output_Copy" HorizontalAlignment="Left" Height="31" Margin="436,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="307" IsReadOnly="True"/>
+        <Button x:Name="CopyKey_Copy" Content="Encrypt" Height="28" Margin="483,330,227,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="#FFA77ACC" FontFamily="Quicksand" Click="Button_Encrypt_File"/>
+        <TextBox x:Name="string4" HorizontalAlignment="Left" Height="25" Margin="436,281,0,0" TextWrapping="Wrap" Text="New to be created file name :" VerticalAlignment="Top" Width="307" Background="#FFF4F4F5" Foreground="#FF621D99" FontSize="16" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" FontFamily="Quicksand" IsReadOnly="True"/>
+        <TextBox x:Name="New_File_Name" HorizontalAlignment="Left" Height="25" Margin="436,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="307" Background="#FFF4F4F5" Foreground="#FF621D99" FontSize="16" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" FontFamily="Quicksand" IsReadOnly="True"/>
+        <Button x:Name="CopyKey_Copy1" Content="Decrypt" Height="28" Margin="617,330,93,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="#FFA77ACC" FontFamily="Quicksand" Click="Button_Decrypt_File"/>
+        <TextBox HorizontalAlignment="Left" Height="19" Margin="131,34,0,0" TextWrapping="Wrap" Text="| Encryption Solution" VerticalAlignment="Top" Width="191" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#7FFFFFFF" SelectionBrush="{x:Null}" IsReadOnly="True" IsInactiveSelectionHighlightEnabled="True"/>
+        <Button x:Name="close_button" Content="X" HorizontalAlignment="Left" Height="30" Margin="639,28,0,0" VerticalAlignment="Top" Width="68" FontSize="18" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White" Click="close_button_Click" FontFamily="Calibri"/>
+        <Image Source="pack://application:,,,/synx.png" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="25" Margin="107,32,0,0"/>
+    </Grid>
+</Window>
