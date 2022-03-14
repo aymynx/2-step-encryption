@@ -36,7 +36,7 @@
 </details>
 <h2>About The Project</h2>
 <br />
-<a>I have been learning C# for a while now and wanted to implement what I leanrt to make something that I would consider or call a milestone</a>
+<a>I have been learning C# for a while now and wanted to implement what I learnt to make something that I would call or consider a milestone</a>
 <h2>How Does It Work</h2>
 <br />
 <a>...</a>
