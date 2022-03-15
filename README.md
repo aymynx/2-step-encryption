@@ -38,5 +38,14 @@
 <br />
 <a>I have been learning C# for a while now and wanted to implement what I learnt to make something that I would call or consider a milestone</a>
 <h2>How Does It Work</h2>
-<br />
 <a>...</a>
+<br />
+<h2>Build Your Own Version</h2>
+<a>...</a>
+<br />
+<h2>Roadmap</h2>
+<a>...</a>
+<br />
+<h2>License</h2>
+<p>Distributed under the MIT License. See `LICENSE.txt` for more information.</p>
+
