@@ -44,8 +44,13 @@
 <a>...</a>
 <br />
 <h2>Roadmap</h2>
-<a>...</a>
-<br />
+
+- [x] Build as WPF project
+- [x] Add ability to decrypt files
+- [ ] Faster encryption/decryption of large files
+- [ ] Multi-language Support
+    - [ ] French
+    - [ ] Japanese
+    - [ ] Chinese
 <h2>License</h2>
 <p>Distributed under the MIT License. See <a href="https://github.com/aymynx/2-step-encryption/blob/master/LICENSE.txt">LICENSE.txt</a> for more information.</p>
-
