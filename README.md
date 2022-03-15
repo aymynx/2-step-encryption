@@ -47,5 +47,5 @@
 <a>...</a>
 <br />
 <h2>License</h2>
-<p>Distributed under the MIT License. See `LICENSE.txt` for more information.</p>
+<p>Distributed under the MIT License. See <a href="https://github.com/aymynx/2-step-encryption/blob/master/LICENSE.txt">LICENSE.txt</a> for more information.</p>
 
