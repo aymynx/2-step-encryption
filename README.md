@@ -45,6 +45,7 @@
 <a>...</a>
 <br />
 <h2>Project Roadmap</h2>
+
 - [x] Build as WPF project
 - [x] Add ability to encrypt & decrypt files
 - [x] Faster encryption/decryption of large files >1GB
