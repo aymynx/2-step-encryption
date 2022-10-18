@@ -38,18 +38,18 @@
 <br />
 <a>I have been learning C# for a while now and wanted to implement what I learnt to make something that I would call or consider a milestone</a>
 <h2>How Does It Work</h2>
+<img src="https://cdn.discordapp.com/attachments/711698809989890049/1032025032869822494/unknown.png"></img>
 <a>...</a>
 <br />
 <h2>Build Your Own Version</h2>
 <a>...</a>
 <br />
-<h2>Roadmap</h2>
-
+<h2>Project Roadmap</h2>
 - [x] Build as WPF project
-- [x] Add ability to decrypt files
-- [ ] Faster encryption/decryption of large files
+- [x] Add ability to encrypt & decrypt files
+- [x] Faster encryption/decryption of large files >1GB
 - [ ] Multi-language Support
     - [x] English
-    - [ ] Chinese
+    - [ ] Chinese (requested)
 <h2>License</h2>
 <p>Distributed under the MIT License. See <a href="https://github.com/aymynx/2-step-encryption/blob/master/LICENSE.txt">LICENSE.txt</a> for more information.</p>
