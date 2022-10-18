@@ -39,10 +39,10 @@
 <a>I have been learning C# for a while now and wanted to implement what I learnt to make something that I would call or consider a milestone</a>
 <h2>How Does It Work</h2>
 <img src="https://cdn.discordapp.com/attachments/711698809989890049/1032025032869822494/unknown.png"></img>
-<a>...</a>
+<a>(Will add this part later)</a>
 <br />
 <h2>Build Your Own Version</h2>
-<a>...</a>
+<a>(Will add this part later)</a>
 <br />
 <h2>Project Roadmap</h2>
 
