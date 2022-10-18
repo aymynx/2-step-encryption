@@ -49,8 +49,9 @@
 - [x] Build as WPF project
 - [x] Add ability to encrypt & decrypt files
 - [x] Faster encryption/decryption of large files >1GB
-- [ ] Multi-language Support
+- [ ] Multi-language support
     - [x] English
     - [ ] Chinese (requested)
+- [ ] In-app file handler
 <h2>License</h2>
 <p>Distributed under the MIT License. See <a href="https://github.com/aymynx/2-step-encryption/blob/master/LICENSE.txt">LICENSE.txt</a> for more information.</p>
